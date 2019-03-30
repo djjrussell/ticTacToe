@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Test from './Test';
+import {Board} from  './Models/Board';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Test />
+        <Board />
       </div>
     );
   }
