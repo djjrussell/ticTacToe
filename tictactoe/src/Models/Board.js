@@ -1,24 +1,20 @@
 import React from 'react';
-import {Tile} from "./Tile"
+import { Tile } from "./Tile"
 
-export class Board extends React.Component {
-
-    render(){
-        return (
-           <div>
-            <Tile/>
-            <Tile/>
-            <Tile/>
+export const Board = (props) => {
+    return (
+        <div className="board">
+            <Tile onClick={props.onClick} marker={props.marker}/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
             <br />
-            <Tile/>
-            <Tile/>
-            <Tile/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
             <br />
-            <Tile/>
-            <Tile/>
-            <Tile/>
-           </div>
-        );
-    }
-
+            <Tile onClick={props.onClick} marker={props.marker} />
+            <Tile onClick={props.onClick} marker={props.marker}/>
+            <Tile onClick={props.onClick} marker={props.marker}/>
+        </div>
+    );
 }
