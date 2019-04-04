@@ -26,7 +26,18 @@ export const checkVertical = (tile) => {
 };
 
 export const checkDiagonal = (tile) => {
+    const marker = tile.dataset.owner;
 
+    const board = tile.parentElement;
 
+    return((
+           board.querySelector(".tile[data-col='1'][data-row='1'][data-owner='"+marker+"']") &&
+           board.querySelector(".tile[data-col='2'][data-row='2'][data-owner='"+marker+"']") &&
+           board.querySelector(".tile[data-col='3'][data-row='3'][data-owner='"+marker+"']")
+           ) || (
+           board.querySelector(".tile[data-col='1'][data-row='3'][data-owner='"+marker+"']") &&
+           board.querySelector(".tile[data-col='2'][data-row='2'][data-owner='"+marker+"']") &&
+           board.querySelector(".tile[data-col='3'][data-row='1'][data-owner='"+marker+"']")
+       ))    ;
 
 };
