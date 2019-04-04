@@ -1,50 +1,6 @@
 import React from 'react';
 import {Board} from './Board';
-
-
-let checkHorizontal = (tile) => {
-
-    const needed = 3;
-    let have = 1;
-
-    if (
-        tile.nextElementSibling &&
-        tile.nextElementSibling.dataset.marked === "true" &&
-        tile.nextElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-    if (
-        tile.nextElementSibling &&
-        tile.nextElementSibling.nextElementSibling &&
-        tile.nextElementSibling.nextElementSibling.dataset.marked === "true" &&
-        tile.nextElementSibling.nextElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-
-    if (
-        tile.previousElementSibling &&
-        tile.previousElementSibling.dataset.marked === "true" &&
-        tile.previousElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-    if (
-        tile.previousElementSibling &&
-        tile.previousElementSibling.previousElementSibling &&
-        tile.previousElementSibling.previousElementSibling.dataset.marked === "true" &&
-        tile.previousElementSibling.previousElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-
-    if (have === needed) {
-        return true;
-    }
-
-    return false;
-};
+import {checkHorizontal} from './../checks/horizontal';
 
 export class Game extends React.Component {
 
@@ -78,7 +34,8 @@ export class Game extends React.Component {
         if(didWin){
 
             setTimeout(() => {
-                alert(this.state.marker + " Wins!!!");
+                alert(this.state.previousMarker + " Wins!!!");
+                window.location = window.location;
             }, 200);
 
         }
