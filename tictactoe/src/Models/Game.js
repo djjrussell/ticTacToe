@@ -1,6 +1,7 @@
 import React from 'react';
 import {Board} from './Board';
 import {checkHorizontal} from './../checks/horizontal';
+import {checkVertical} from './../checks/horizontal';
 
 export class Game extends React.Component {
 
@@ -45,11 +46,7 @@ export class Game extends React.Component {
     didWin(e) {
         const tile = e.target;
 
-        if (checkHorizontal(tile)) {
-            return true;
-        }
-
-        return false;
+        return checkHorizontal(tile) || checkVertical(tile)
 
     };
 

@@ -1,43 +1,32 @@
 export const checkHorizontal = (tile) => {
 
-    const needed = 3;
-    let have = 1;
+    const marker = tile.dataset.owner;
+    const row = tile.dataset.row;
+    const board = tile.parentElement;
 
-    if (
-        tile.nextElementSibling &&
-        tile.nextElementSibling.dataset.marked === "true" &&
-        tile.nextElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-    if (
-        tile.nextElementSibling &&
-        tile.nextElementSibling.nextElementSibling &&
-        tile.nextElementSibling.nextElementSibling.dataset.marked === "true" &&
-        tile.nextElementSibling.nextElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
+    const possible = board.querySelectorAll(".tile[data-owner='"+marker+"'][data-row='"+row+"']");
 
-    if (
-        tile.previousElementSibling &&
-        tile.previousElementSibling.dataset.marked === "true" &&
-        tile.previousElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-    if (
-        tile.previousElementSibling &&
-        tile.previousElementSibling.previousElementSibling &&
-        tile.previousElementSibling.previousElementSibling.dataset.marked === "true" &&
-        tile.previousElementSibling.previousElementSibling.dataset.owner === tile.dataset.owner
-    ) {
-        have++
-    }
-
-    if (have === needed) {
+    if(possible.length === 3){
         return true;
     }
-
     return false;
+};
+
+export const checkVertical = (tile) => {
+    const marker = tile.dataset.owner;
+    const col = tile.dataset.col;
+    const board = tile.parentElement;
+
+    const possible = board.querySelectorAll(".tile[data-owner='"+marker+"'][data-col='"+col+"']");
+
+    if(possible.length === 3){
+        return true;
+    }
+    return false;
+};
+
+export const checkDiagonal = (tile) => {
+
+
+
 };
