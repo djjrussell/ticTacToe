@@ -1,8 +1,8 @@
 import React from 'react';
 import {Board} from './Board';
-import {checkHorizontal} from './../checks/horizontal';
-import {checkVertical} from './../checks/horizontal';
-import {checkDiagonal} from './../checks/horizontal';
+import {checkHorizontal} from '../checks/checkForWin';
+import {checkVertical} from '../checks/checkForWin';
+import {checkDiagonal} from '../checks/checkForWin';
 
 export class Game extends React.Component {
 
