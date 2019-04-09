@@ -11,7 +11,8 @@ export class Game extends React.Component {
 
         this.state = {
             previousMarker: "O",
-            marker: "X"
+            marker: "X",
+            totalMarked:0
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -24,7 +25,7 @@ export class Game extends React.Component {
 
         if (tile.dataset.marked === "true") {
             alert("This spot is taken");
-            return;
+            return false;
         }
 
         tile.innerHTML = this.state.marker;
@@ -52,14 +53,24 @@ export class Game extends React.Component {
     };
 
     handleClick(e) {
+        debugger;
+        const tile = e.target;
 
-        this.markTile(e);
+        if (tile.dataset.marked === "true") {
+            alert("This spot is taken");
+            return false;
+        }else {
 
-        this.setState({
-            previousMarker: this.state.marker,
-            marker: this.state.marker === "X" ? "O" : "X",
-        });
+            this.setState({
+                previousMarker: this.state.marker,
+                marker: this.state.marker === "X" ? "O" : "X",
+                totalMarked: this.state.totalMarked + 1
+            });
 
+
+            this.markTile(e);
+
+        }
     }
 
     render() {
