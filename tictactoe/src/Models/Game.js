@@ -41,8 +41,13 @@ export class Game extends React.Component {
                 window.location = window.location;
             }, 200);
 
-        }
+        }else {
 
+            if (this.state.totalMarked == 8){
+                alert("WE SUCK!!");
+                window.location = window.location;
+            }
+        }
     }
 
     didWin(e) {
@@ -57,8 +62,10 @@ export class Game extends React.Component {
         const tile = e.target;
 
         if (tile.dataset.marked === "true") {
+
             alert("This spot is taken");
             return false;
+
         }else {
 
             this.setState({
